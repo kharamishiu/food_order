@@ -1,4 +1,4 @@
-import { CreateUserParams, GetMenuParams, MenuItem, SignInParams, User } from '@/type';
+import { Category, CreateUserParams, GetMenuParams, MenuItem, SignInParams, User } from '@/type';
 import { Account, Avatars, Client, Databases, ID, Query, Storage } from 'react-native-appwrite';
 
 //agregamos ! final de la variable para indicar que no es nulo
@@ -127,7 +127,7 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
 
 export const getCategories = async () => {
     try {
-        const categories = await db.listDocuments(
+        const categories = await db.listDocuments<Category>(
             {
                 databaseId: appWriteConfig.database,
                 collectionId: appWriteConfig.categorieCollectionId,
@@ -137,7 +137,9 @@ export const getCategories = async () => {
 
         )
 
+
         return categories.documents;
+
     } catch (error) {
         throw new Error(error as string)
     }

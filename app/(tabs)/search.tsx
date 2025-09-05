@@ -28,6 +28,9 @@ const Search = () => {
     const { data: categories } = useAppWrite({ fn: getCategories });
 
 
+    console.log('====================================');
+    console.log(categories);
+    console.log('====================================');
 
 
     useEffect(() => {
