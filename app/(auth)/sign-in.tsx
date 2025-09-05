@@ -25,7 +25,7 @@ const SignIn = () => {
             await signIn({ email, password })
 
             //Alert.alert('Success', 'User signed in successfully')
-            router.replace('/')
+            router.replace("/")
 
 
         } catch (error: any) {
